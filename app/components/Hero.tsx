@@ -10,7 +10,7 @@ export default function Hero() {
       <div className=" bg-opacity-50 w-full h-full absolute top-0 left-0" />
       <div className="relative z-10 text-center px-6">
         <h2 className="text-4xl md:text-6xl font-extrabold mb-4">
-          Construisons votre l'en Demain, Aujourd'hui
+          Construisons votre l&apos;en Demain, Aujourd&apos;hui
         </h2>
         <p className="text-xl md:text-2xl">
           Des maisons modernes, solides et durables pour tous.
