@@ -9,11 +9,11 @@ export default function Navbar() {
 
   return (
     <header className="bg-yellow-600 text-white shadow-md">
-      <div className="max-w-7xl mx-auto flex justify-between items-center p-4">
-        <h1 className="text-2xl font-bold">BatirDemain</h1>
+      <div className="max-w-7xl mx-auto flex justify-between items-center p-5">
+        <h1 className="text-3xl font-bold">BatirDemain</h1>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
         <nav className="hidden md:flex space-x-6">
-          <a href="#" className="hover:text-black">Accueil</a>
-          <a href="#services" className="hover:text-black">Services</a>
+          <a href="#about" className="hover:text-black">A propos</a>
+          <a href="#catalogue" className="hover:text-black">Catalogue</a>
           <a href="#contact" className="hover:text-black">Contact</a>
         </nav>
         <button
@@ -25,9 +25,10 @@ export default function Navbar() {
       </div>
       {isOpen && (
         <div className="md:hidden px-4 pb-4 space-y-2 bg-yellow-500">
-          <a href="#" className="block">Accueil</a>
-          <a href="#services" className="block">Services</a>
-          <a href="#contact" className="block">Contact</a>
+    
+          <a href="#about" className="block">À propos</a>
+          <a href="#catalogue" className="block">Catalogue</a>
+            <a href="#contact" className="block">Contact</a>
         </div>
       )}
     </header>

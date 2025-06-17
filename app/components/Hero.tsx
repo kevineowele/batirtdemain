@@ -1,10 +1,11 @@
+import Link from "next/link";
 // components/Hero.tsx
 export default function Hero() {
   return (
     <section
-      className="relative h-[80vh] bg-cover bg-center flex items-center justify-center text-white"
+      className="relative h-[100vh] bg-cover bg-center flex items-center justify-center text-white"
       style={{
-        backgroundImage: "url('/images/maison.jpeg')",
+        backgroundImage: "url('/images/chantier.png')",
       }}
     >
       <div className=" bg-opacity-50 w-full h-full absolute top-0 left-0" />
@@ -15,12 +16,12 @@ export default function Hero() {
         <p className="text-xl md:text-2xl">
           Des maisons modernes, solides et durables pour tous.
         </p>
-        <a
-          href="#contact"
+        <Link
+          href="/formulaire"
           className="mt-6 inline-block bg-yellow-400 hover:bg-yellow-300 text-black font-semibold py-2 px-4 rounded-xl transition duration-300"
         >
           Demander un devis
-        </a>
+        </Link>
       </div>
     </section>
   );
