@@ -1,7 +1,7 @@
 // components/Catalogue.tsx
 "use client";
-
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const maisonsSimples = [
   "/images/maison1.jpg",
@@ -40,7 +40,7 @@ export default function Catalogue() {
                 className="overflow-hidden rounded-xl shadow-md"
                 whileHover={{ scale: 1.05 }}
               >
-                <img
+                <Image
                   src={src}
                   alt={`Maison ${index + 1}`}
                   className="w-full h-60 object-cover transition-transform duration-300"
