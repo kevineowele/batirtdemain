@@ -63,9 +63,10 @@ export default function Catalogue() {
                 className="overflow-hidden rounded-xl shadow-md"
                 whileHover={{ scale: 1.05 }}
               >
-                <img
+                <Image
                   src={src}
                   alt={`Duplex ${index + 1}`}
+                  fill
                   className="w-full h-60 object-cover transition-transform duration-300"
                 />
               </motion.div>
