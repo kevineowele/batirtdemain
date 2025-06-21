@@ -1,25 +1,71 @@
-// components/Catalogue.tsx
 "use client";
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 
 const maisonsSimples = [
-  "/images/maison1.1.jpg",
-  "/images/maison3.jpg",
-  "/images/maison4.jpg",
-  "/images/maison5.jpg",
+  {
+    src: "/images/maison1.1.jpg",
+    title: "Maison Moderne 1",
+    description: "Maison contemporaine avec 3 chambres et grand séjour.",
+  },
+  {
+    src: "/images/maison3.jpg",
+    title: "Maison Moderne 2",
+    description: "Maison familiale avec jardin et terrasse.",
+  },
+  {
+    src: "/images/maison4.jpg",
+    title: "Maison Style Classique",
+    description: "Maison traditionnelle avec finitions haut de gamme.",
+  },
+  {
+    src: "/images/maison5.jpg",
+    title: "Villa de Luxe",
+    description: "Villa spacieuse avec piscine et espace détente.",
+  },
 ];
 
 const duplex = [
-  "/images/chantier.png",
-  "/images/maison22.jpg",
-  "/images/maison23.jpg",
-  "/images/maison24.jpg",
-    "/images/fond2.jpg",
-    "/images/maison .png",
+  {
+    src: "/images/chantier.png",
+    title: "Duplex en construction",
+    description: "Projet en cours de finition.",
+  },
+  {
+    src: "/images/maison22.jpg",
+    title: "Duplex Moderne",
+    description: "Duplex lumineux avec cuisine ouverte.",
+  },
+  {
+    src: "/images/maison23.jpg",
+    title: "Duplex Design",
+    description: "Architecture contemporaine et grandes baies vitrées.",
+  },
+  {
+    src: "/images/maison24.jpg",
+    title: "Grand Duplex",
+    description: "4 chambres, 2 salons, et garage.",
+  },
+  {
+    src: "/images/fond2.jpg",
+    title: "Duplex sur mesure",
+    description: "Conception personnalisée selon vos besoins.",
+  },
+  {
+    src: "/images/maison .png",
+    title: "Duplex clé en main",
+    description: "Projet livré prêt à habiter.",
+  },
 ];
 
 export default function Catalogue() {
+  const [selected, setSelected] = useState<{ src: string; title: string; description: string } | null>(null);
+
+  const handleDetailsClick = (item: { src: string; title: string; description: string }) => {
+    setSelected(item);
+  };
+
   return (
     <section id="catalogue" className="bg-blue-100 py-16 px-6 md:px-12 lg:px-24 text-gray-800">
       <div className="max-w-6xl mx-auto space-y-12">
@@ -33,47 +79,94 @@ export default function Catalogue() {
         </motion.h2>
 
         {/* Catégorie Maisons simples */}
-        <div>
-          <h3 className="text-3xl font-bold text-gray-700 mb-6">Maisons simples et modernes</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {maisonsSimples.map((src, index) => (
-              <motion.div
-                key={index}
-                className="overflow-hidden rounded-xl shadow-md"
-                whileHover={{ scale: 1.05 }}
-              >
-                <Image
-                  src={src}
-                  alt="Maison"
-                   width={500}
-                   height={400}
-                />
-              </motion.div>
-            ))}
-          </div>
-        </div>
+        <CatalogueSection title="Maisons simples et modernes" data={maisonsSimples} onDetailsClick={handleDetailsClick} />
 
         {/* Catégorie Duplex */}
-        <div>
-          <h3 className="text-3xl font-bold text-gray-700 mb-6">Duplex</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {duplex.map((src, index) => (
+        <CatalogueSection title="Duplex" data={duplex} onDetailsClick={handleDetailsClick} />
+
+        {/* Modal animé pour les détails */}
+        <AnimatePresence>
+          {selected && (
+            <motion.div
+              className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
               <motion.div
-                key={index}
-                className="overflow-hidden rounded-xl shadow-md"
-                whileHover={{ scale: 1.05 }}
+                className="bg-white p-6 md:p-8 rounded-lg shadow-xl max-w-md w-full text-center space-y-4 relative"
+                initial={{ scale: 0.8 }}
+                animate={{ scale: 1 }}
+                exit={{ scale: 0.8 }}
               >
-                <Image
-                  src={src}
-                  alt={`Duplex ${index + 1}`}
-                  fill
-                  className="w-full h-60 object-cover transition-transform duration-300"
-                />
+                <h4 className="text-2xl font-bold text-gray-800">{selected.title}</h4>
+                <div className="relative w-full h-64 mx-auto">
+                  <Image
+                    src={selected.src}
+                    alt={selected.title}
+                    fill
+                    className="object-cover rounded"
+                  />
+                </div>
+                <p className="text-gray-600">{selected.description}</p>
+                <button
+                  onClick={() => setSelected(null)}
+                  className="mt-4 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition"
+                >
+                  Fermer
+                </button>
               </motion.div>
-            ))}
-          </div>
-        </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
+  );
+}
+
+function CatalogueSection({
+  title,
+  data,
+  onDetailsClick,
+}: {
+  title: string;
+  data: { src: string; title: string; description: string }[];
+  onDetailsClick: (item: { src: string; title: string; description: string }) => void;
+}) {
+  return (
+    <div>
+      <h3 className="text-3xl font-bold text-gray-700 mb-6">{title}</h3>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {data.map((item, index) => (
+          <motion.div
+            key={index}
+            className="relative overflow-hidden rounded-xl shadow-md group"
+            whileHover={{ scale: 1.02 }}
+          >
+            <div className="relative h-60">
+              <Image
+                src={item.src}
+                alt={item.title}
+                fill
+                className="object-cover transition-transform duration-300"
+              />
+              {/* Overlay titre */}
+              <div className="absolute top-0 left-0 bg-black bg-opacity-50 text-white text-sm px-3 py-1 rounded-br">
+                {item.title}
+              </div>
+              {/* Overlay bouton */}
+              <div className="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                <button
+                  onClick={() => onDetailsClick(item)}
+                  className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition"
+                >
+                  Détails
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </div>
   );
 }
