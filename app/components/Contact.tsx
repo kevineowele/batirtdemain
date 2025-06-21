@@ -41,12 +41,12 @@ export default function ContactSection() {
           <h2 className="text-4xl md:text-5xl font-extrabold text-yellow-600">
             Contactez-nous
           </h2>
-          <p className="text-lg">
+          <p className="text-lg md:text-xl text-white">
             Une question ? Un projet ? Contactez-nous, notre équipe vous répondra rapidement.
           </p>
-          <div className="space-y-4 text-lg">
+          <div className="space-y-4 text-white">
             <p>
-              <strong>Adresse :</strong> 123 Avenue des Bâtisseurs, Libreville, Gabon
+              <strong>Adresse :</strong> Bâtisseurs, Libreville, Gabon
             </p>
             <p>
               <strong>Téléphone :</strong>{" "}
@@ -54,7 +54,8 @@ export default function ContactSection() {
                 href="tel:+241600000000"
                 className="text-yellow-500 hover:underline"
               >
-                +241 60 00 00 00 00
+                +241 66 29 94 16 
+
               </a>
             </p>
             <p>

@@ -67,7 +67,7 @@ export default function Catalogue() {
   };
 
   return (
-    <section id="catalogue" className="bg-blue-100 py-16 px-6 md:px-12 lg:px-24 text-gray-800">
+    <section id="catalogue" className="bg-yellow-100 py-16 px-6 md:px-12 lg:px-24 text-gray-800">
       <div className="max-w-6xl mx-auto space-y-12">
         <motion.h2
           initial={{ opacity: 0, y: -30 }}
