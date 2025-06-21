@@ -1,17 +1,19 @@
-// app/page.tsx
-import Navbar from "@/app/components/Navbar";
+import React from "react";
 import Hero from "@/app/components/Hero";
-import Footer from "@/app/components/Footer";
 import About from "@/app/components/About";
 import Catalogue from "../components/Catalogue";
+import Contact from "@/app/components/Contact";
+// app/%28landing%29/page.tsx
+import { Contact as contactIcon } from "lucide-react";
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar />
+     
       <Hero />
       <About />
-       <Catalogue />     
-      <Footer />
+       <Catalogue />
+       <Contact />  
+     
     </div>
   );
 }

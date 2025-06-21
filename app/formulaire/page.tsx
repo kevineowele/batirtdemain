@@ -29,7 +29,8 @@ export default function ContactForm() {
     <section id="contact" className="bg-white py-16 px-6 md:px-12 lg:px-24 text-gray-800">
       <div className="max-w-3xl mx-auto space-y-8">
         <h2 className="text-4xl md:text-5xl font-extrabold text-yellow-600 text-center">
-          Demande devis clients
+          Demande devis 
+clients
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-6">

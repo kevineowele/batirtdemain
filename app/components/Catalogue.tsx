@@ -4,22 +4,24 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 const maisonsSimples = [
-  "/images/maison1.jpg",
-  "/images/maison2.jpg",
+  "/images/maison1.1.jpg",
   "/images/maison3.jpg",
   "/images/maison4.jpg",
+  "/images/maison5.jpg",
 ];
 
 const duplex = [
-  "/images/duplex1.jpg",
-  "/images/duplex2.jpg",
-  "/images/duplex3.jpg",
-  "/images/duplex4.jpg",
+  "/images/chantier.png",
+  "/images/maison22.jpg",
+  "/images/maison23.jpg",
+  "/images/maison24.jpg",
+    "/images/fond2.jpg",
+    "/images/maison .png",
 ];
 
 export default function Catalogue() {
   return (
-    <section id="catalogue" className="bg-gray-100 py-16 px-6 md:px-12 lg:px-24 text-gray-800">
+    <section id="catalogue" className="bg-blue-100 py-16 px-6 md:px-12 lg:px-24 text-gray-800">
       <div className="max-w-6xl mx-auto space-y-12">
         <motion.h2
           initial={{ opacity: 0, y: -30 }}
@@ -42,8 +44,9 @@ export default function Catalogue() {
               >
                 <Image
                   src={src}
-                  alt={`Maison ${index + 1}`}
-                  className="w-full h-60 object-cover transition-transform duration-300"
+                  alt="Maison"
+                   width={500}
+                   height={400}
                 />
               </motion.div>
             ))}
