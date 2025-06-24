@@ -8,6 +8,7 @@ export default function ContactSection() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    telephone: "",
     message: "",
   });
 
@@ -22,7 +23,7 @@ export default function ContactSection() {
     e.preventDefault();
     console.log("Message envoyé :", formData);
     alert("Merci pour votre message !");
-    setFormData({ name: "", email: "", message: "" });
+    setFormData({ name: "", email: "", telephone: "", message: "" });
   };
 
   return (
@@ -51,7 +52,7 @@ export default function ContactSection() {
             <p>
               <strong>Téléphone :</strong>{" "}
               <a
-                href="tel:+241600000000"
+                href="tel:+24166299416"
                 className="text-yellow-500 hover:underline"
               >
                 +241 66 29 94 16 

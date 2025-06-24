@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 // components/Hero.tsx
@@ -18,27 +19,33 @@ export default function Hero() {
       <div className="flex flex-col md:flex-row items-center justify-center gap-8">
         {/* Cercle 1 */}
         <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-yellow-400 flex items-center justify-center bg-gray-800">
-          <img
+          <Image
             src="/images/expertise1.jpg"
             alt="Expertise 1"
+            width={192} // 48 * 4 = 192 px
+            height={192}
             className="object-cover w-full h-full"
           />
         </div>
 
         {/* Cercle 2 */}
         <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-yellow-400 flex items-center justify-center bg-gray-800">
-          <img
+          <Image
             src="/images/expertise2.jpg"
             alt="Expertise 2"
+            width={192}
+            height={192}
             className="object-cover w-full h-full"
           />
         </div>
 
         {/* Cercle 3 */}
         <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-yellow-400 flex items-center justify-center bg-gray-800">
-          <img
+          <Image
             src="/images/expertise3.jpg"
             alt="Expertise 3"
+            width={192}
+            height={192}
             className="object-cover w-full h-full"
           />
         </div>

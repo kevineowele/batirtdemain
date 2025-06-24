@@ -7,7 +7,7 @@ export default function About() {
     >
       <div className="max-w-5xl mx-auto text-center space-y-6">
         <h2 className="text-4xl md:text-5xl font-extrabold text-yellow-600">
-          À propos de BatirDemain
+          À propos de nous
         </h2>
         <p className="text-lg md:text-xl leading-relaxed">
           BatirDemain est une entreprise de BTP engagée dans la construction de différent types logements modernes en fonction de votre budge, durables et accessibles.
