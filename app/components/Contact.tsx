@@ -1,8 +1,8 @@
-// components/ContactSection.tsx
 "use client";
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { HiOutlineMail, HiOutlinePhone, HiOutlineLocationMarker } from "react-icons/hi";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -29,109 +29,135 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="bg-gray-600 py-16 px-6 md:px-12 lg:px-24 text-gray-800 scroll-mt-20"
+      className="bg-gradient-to-tr from-yellow-50 via-yellow-gray-300 to-yellow-50 py-20 px-6 md:px-12 lg:px-24 scroll-mt-20"
     >
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         {/* Infos contact */}
         <motion.div
-          initial={{ opacity: 0, x: -30 }}
+          initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-          className="space-y-6"
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="bg-white rounded-3xl shadow-lg p-10 space-y-8"
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold text-yellow-600">
-            Contactez-nous
-          </h2>
-          <p className="text-lg md:text-xl text-white">
+          <h2 className="text-5xl font-extrabold text-yellow-600">Contactez-nous</h2>
+          <p className="text-lg text-gray-700 leading-relaxed">
             Une question ? Un projet ? Contactez-nous, notre équipe vous répondra rapidement.
           </p>
-          <div className="space-y-4 text-white">
-            <p>
-              <strong>Adresse :</strong> Bâtisseurs, Libreville, Gabon
-            </p>
-            <p>
-              <strong>Téléphone :</strong>{" "}
-              <a
-                href="tel:+24166299416"
-                className="text-yellow-500 hover:underline"
-              >
-                +241 66 29 94 16 
 
+          <div className="space-y-6 text-gray-800 text-lg">
+            <div className="flex items-center space-x-4">
+              <HiOutlineLocationMarker className="text-yellow-500 w-7 h-7 flex-shrink-0" />
+              <span>Bâtisseurs, Libreville, Gabon</span>
+            </div>
+            <div className="flex items-center space-x-4">
+              <HiOutlinePhone className="text-yellow-500 w-7 h-7 flex-shrink-0" />
+              <a href="tel:+24166299416" className="hover:underline text-yellow-600 font-semibold">
+                +241 66 29 94 16
               </a>
-            </p>
-            <p>
-              <strong>Email :</strong>{" "}
-              <a
-                href="mailto:contact@batirdemain.com"
-                className="text-yellow-500 hover:underline"
-              >
+            </div>
+            <div className="flex items-center space-x-4">
+              <HiOutlineMail className="text-yellow-500 w-7 h-7 flex-shrink-0" />
+              <a href="mailto:contact@batirdemain.com" className="hover:underline text-yellow-600 font-semibold">
                 contact@batirdemain.com
               </a>
-            </p>
+            </div>
           </div>
         </motion.div>
 
         {/* Formulaire */}
         <motion.form
-          initial={{ opacity: 0, x: 30 }}
+          initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
           onSubmit={handleSubmit}
-          className="space-y-6 bg-white p-8 rounded-xl shadow-md"
+          className="bg-white rounded-3xl shadow-lg p-10 space-y-6"
         >
-          <div>
-            <label htmlFor="name" className="block text-lg font-semibold mb-2">
-              Votre nom
-            </label>
+          {/* Nom */}
+          <div className="relative z-0">
             <input
               type="text"
-              id="name"
               name="name"
+              id="name"
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 text-lg focus:ring-2 focus:ring-yellow-400 focus:outline-none"
-              placeholder="Nom complet"
+              placeholder=" "
+              className="peer block w-full appearance-none border-b-2 border-gray-300 bg-transparent py-3 px-0 text-gray-900 focus:border-yellow-500 focus:outline-none focus:ring-0"
             />
+            <label
+              htmlFor="name"
+              className="absolute left-0 top-3 -translate-y-6 scale-75 transform text-gray-500 transition-all peer-placeholder-shown:translate-y-3 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75"
+            >
+              Votre nom
+            </label>
           </div>
 
-          <div>
-            <label htmlFor="email" className="block text-lg font-semibold mb-2">
-              Votre email
-            </label>
+          {/* Email */}
+          <div className="relative z-0">
             <input
               type="email"
-              id="email"
               name="email"
+              id="email"
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 text-lg focus:ring-2 focus:ring-yellow-400 focus:outline-none"
-              placeholder="exemple@domaine.com"
+              placeholder=" "
+              className="peer block w-full appearance-none border-b-2 border-gray-300 bg-transparent py-3 px-0 text-gray-900 focus:border-yellow-500 focus:outline-none focus:ring-0"
             />
+            <label
+              htmlFor="email"
+              className="absolute left-0 top-3 -translate-y-6 scale-75 transform text-gray-500 transition-all peer-placeholder-shown:translate-y-3 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75"
+            >
+              Votre email
+            </label>
           </div>
 
-          <div>
-            <label htmlFor="message" className="block text-lg font-semibold mb-2">
-              Message
+          {/* Téléphone (optionnel) */}
+          <div className="relative z-0">
+            <input
+              type="tel"
+              name="telephone"
+              id="telephone"
+              value={formData.telephone}
+              onChange={handleChange}
+              placeholder=" "
+              className="peer block w-full appearance-none border-b-2 border-gray-300 bg-transparent py-3 px-0 text-gray-900 focus:border-yellow-500 focus:outline-none focus:ring-0"
+            />
+            <label
+              htmlFor="telephone"
+              className="absolute left-0 top-3 -translate-y-6 scale-75 transform text-gray-500 transition-all peer-placeholder-shown:translate-y-3 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75"
+            >
+              Téléphone (optionnel)
             </label>
+          </div>
+
+          {/* Message */}
+          <div className="relative z-0">
             <textarea
-              id="message"
               name="message"
+              id="message"
               value={formData.message}
               onChange={handleChange}
               required
               rows={5}
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 text-lg focus:ring-2 focus:ring-yellow-400 focus:outline-none"
-              placeholder="Votre message ici..."
-            ></textarea>
+              placeholder=" "
+              className="peer block w-full appearance-none border-b-2 border-gray-300 bg-transparent py-3 px-0 text-gray-900 resize-none focus:border-yellow-500 focus:outline-none focus:ring-0"
+            />
+            <label
+              htmlFor="message"
+              className="absolute left-0 top-3 -translate-y-6 scale-75 transform text-gray-500 transition-all peer-placeholder-shown:translate-y-3 peer-placeholder-shown:scale-100 peer-focus:-translate-y-6 peer-focus:scale-75"
+            >
+              Votre message
+            </label>
           </div>
 
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             type="submit"
-            className="w-full bg-yellow-400 hover:bg-yellow-300 text-black font-semibold py-3 px-6 rounded-xl text-lg transition duration-300"
+            className="w-full bg-yellow-500 text-white font-bold py-4 rounded-2xl shadow-lg hover:bg-yellow-400 focus:outline-none focus:ring-4 focus:ring-yellow-300 transition"
           >
             Envoyer le message
           </motion.button>

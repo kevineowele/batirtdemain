@@ -21,10 +21,10 @@ export default function Footer() {
         <div className="flex flex-col space-y-4 max-w-md">
           <p className="text-3xl font-bold text-yellow-400">BatirDemain</p>
           <p className="text-gray-300 leading-relaxed">
-            Construisons ensemble les maisons de demain — robustes, durables et respectueuses de l’environnement.
+            Construisons ensemble un lendemain melleiure, robustes et durables.
           </p>
           <p className="text-gray-400 text-sm">
-            &copy; {new Date().getFullYear()} BatirDemain. Tous droits réservés.
+            &copy; {new Date().getFullYear()} BatirDemain. Batir avec vous un monde réelle .
           </p>
           <p className="text-gray-400 text-sm underline hover:text-yellow-400 transition-colors duration-300 cursor-pointer">
             Mentions légales
@@ -43,7 +43,7 @@ export default function Footer() {
               contact@batirdemain.com
             </a>
           </p>
-          <p>Téléphone : +241 66 29 94 16</p>
+          <p>Téléphone : +241 66 29 94 16 / 241 77 60 18 13</p>
           <p>Adresse : Libreville, Gabon</p>
           <p>Horaires : Lun - Samedi, 8h00 - 18h00</p>
         </div>
@@ -77,7 +77,7 @@ export default function Footer() {
               <FaYoutube />
             </a>
             <a
-              href="https://wa.me/1234567890" // Remplace par ton numéro WhatsApp
+              href="https://wa.me/24166299416" // Remplace par ton numéro WhatsApp
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-yellow-400 hover:scale-110 transform transition-transform duration-300"
