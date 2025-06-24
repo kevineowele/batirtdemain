@@ -20,10 +20,18 @@ const maisonsSimples = [
     description: "Maison traditionnelle avec finitions haut de gamme.",
   },
   {
-    src: "/images/maison5.jpg",
+    src: "/images/maisonsim1.jpg",
     title: "Villa de Luxe",
     description: "Villa spacieuse avec piscine et espace détente.",
   },
+  {
+    src: "/images/maisonsim2.jpg",
+    title: "Maison Écologique",
+    description: "Maison construite avec des matériaux durables.",
+  },
+  
+  
+  
 ];
 
 const duplex = [
@@ -47,16 +55,7 @@ const duplex = [
     title: "Grand Duplex",
     description: "4 chambres, 2 salons, et garage.",
   },
-  {
-    src: "/images/fond2.jpg",
-    title: "Duplex sur mesure",
-    description: "Conception personnalisée selon vos besoins.",
-  },
-  {
-    src: "/images/maison .png",
-    title: "Duplex clé en main",
-    description: "Projet livré prêt à habiter.",
-  },
+  
 ];
 
 export default function Catalogue() {
@@ -67,7 +66,7 @@ export default function Catalogue() {
   };
 
   return (
-    <section id="catalogue" className="bg-yellow-100 py-16 px-6 md:px-12 lg:px-24 text-gray-800">
+    <section id="catalogue" className="bg-yellow-100 py-16 px-6 md:px-12 lg:px-24 text-gray-800 scroll-mt-20">
       <div className="max-w-6xl mx-auto space-y-12">
         <motion.h2
           initial={{ opacity: 0, y: -30 }}

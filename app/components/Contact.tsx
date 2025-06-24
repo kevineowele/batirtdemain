@@ -29,7 +29,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="bg-gray-600 py-16 px-6 md:px-12 lg:px-24 text-gray-800"
+      className="bg-gray-600 py-16 px-6 md:px-12 lg:px-24 text-gray-800 scroll-mt-20"
     >
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         {/* Infos contact */}
