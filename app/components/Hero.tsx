@@ -4,7 +4,10 @@ import Link from "next/link";
 // components/Hero.tsx
 export default function Hero() {
   return (
-    <section className="relative py-20 px-6 md:px-12 lg:px-24 bg-black text-white text-center space-y-12">
+    <section
+      id="home"
+      className="relative py-20 px-6 md:px-12 lg:px-24 bg-black text-white text-center space-y-12 scroll-mt-28"
+    >
       {/* Texte en haut */}
       <div className="max-w-4xl mx-auto space-y-6">
         <h2 className="text-4xl md:text-6xl font-extrabold">
@@ -22,7 +25,7 @@ export default function Hero() {
           <Image
             src="/images/expertise1.jpg"
             alt="Expertise 1"
-            width={192} // 48 * 4 = 192 px
+            width={192}
             height={192}
             className="object-cover w-full h-full"
           />

@@ -5,6 +5,7 @@ import { useState } from "react";
 export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
+    email: "",
     phone: "",
     houseType: "",
     rooms: "",
@@ -30,11 +31,10 @@ export default function ContactForm() {
 
     setIsSubmitting(true);
 
-    const message = `Bonjour, je souhaite un devis pour une maison.\n\nNom : ${formData.name}\nTéléphone : ${formData.phone}\nType de maison : ${formData.houseType}\nNombre de pièces : ${formData.rooms}\n\nMessage complémentaire : ${formData.message || "N/A"}`;
+    const message = `Bonjour, je souhaite un devis pour une maison.\n\nNom : ${formData.name}\nEmail : ${formData.email}\nTéléphone : ${formData.phone}\nType de maison : ${formData.houseType}\nNombre de pièces : ${formData.rooms}\n\nMessage complémentaire : ${formData.message || "N/A"}`;
 
     const encodedMessage = encodeURIComponent(message);
-
-    const phoneNumber = "24166299416"; // numéro WhatsApp (Gabon)
+    const phoneNumber = "24166299416"; // Numéro WhatsApp (Gabon)
 
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
@@ -42,6 +42,7 @@ export default function ContactForm() {
 
     setFormData({
       name: "",
+      email: "",
       phone: "",
       houseType: "",
       rooms: "",
@@ -60,6 +61,7 @@ export default function ContactForm() {
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Nom */}
             <div>
               <label htmlFor="name" className="block text-lg font-medium mb-2">
                 Nom complet
@@ -76,6 +78,24 @@ export default function ContactForm() {
               />
             </div>
 
+            {/* Email */}
+            <div>
+              <label htmlFor="email" className="block text-lg font-medium mb-2">
+                Adresse e-mail
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="w-full border border-gray-300 rounded-xl px-4 py-3 text-lg focus:ring-2 focus:ring-yellow-400 focus:outline-none transition"
+                placeholder="exemple@email.com"
+              />
+            </div>
+
+            {/* Téléphone */}
             <div>
               <label htmlFor="phone" className="block text-lg font-medium mb-2">
                 Numéro de téléphone
@@ -93,6 +113,7 @@ export default function ContactForm() {
               />
             </div>
 
+            {/* Type de maison */}
             <div>
               <label htmlFor="houseType" className="block text-lg font-medium mb-2">
                 Type de maison
@@ -111,6 +132,7 @@ export default function ContactForm() {
               </select>
             </div>
 
+            {/* Nombre de pièces */}
             <div>
               <label htmlFor="rooms" className="block text-lg font-medium mb-2">
                 Nombre de pièces
@@ -129,6 +151,7 @@ export default function ContactForm() {
             </div>
           </div>
 
+          {/* Message complémentaire */}
           <div>
             <label htmlFor="message" className="block text-lg font-medium mb-2">
               Commentaire complémentaire (optionnel)
@@ -144,6 +167,7 @@ export default function ContactForm() {
             ></textarea>
           </div>
 
+          {/* Bouton */}
           <button
             type="submit"
             disabled={isSubmitting}
